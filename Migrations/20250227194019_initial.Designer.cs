@@ -10,7 +10,7 @@ using Mission08_Team0302._1.Models;
 namespace Mission08_Team0302._1.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20250227010848_initial")]
+    [Migration("20250227194019_initial")]
     partial class initial
     {
         /// <inheritdoc />

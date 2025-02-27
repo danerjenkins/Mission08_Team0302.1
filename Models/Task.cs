@@ -6,7 +6,7 @@ namespace Mission08_Team0302._1.Models
     public class Task
     {
         [Key]
-        public string TaskId { get; set; }
+        public int TaskId { get; set; }
         [Required]
         public string task_description { get; set; }
         public string due_date { get; set; }
