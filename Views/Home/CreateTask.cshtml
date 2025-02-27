@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>Add New Task</h2>
+
+<form asp-action="CreateTask" method="post">
+    <input type="hidden" asp-for="TaskId" />
+
+    <!--Task Name-->
+    <div>
+        <label for="taskdescription">Task Description:</label>
+        <input type="text" for="taskdescription" required />
+    </div>
+
+    <!--Due Date-->
+    <div>
+        <label for="DueDate">Due Date:</label>
+        <input type="date" for="DueDate" />
+    </div>
+
+    <!--Quadrant-->
+    <div>
+        <label asp-for="quadrant">Quadrant:</label>
+        <select asp-for="quadrant" required>
+            <option value="1">Quadrant I: Important / Urgent</option>
+            <option value="2">Quadrant II: Important / Not Urgent</option>
+            <option value="3">Quadrant III: Not Important / Urgent</option>
+            <option value="4">Quadrant IV: Not Important / Not Urgent</option>
+        </select>
+    </div>
+
+    <!--Category-->
+    <div>
+        <select asp-for="CategoryId">
+            <!-- Default option prompt for the user -->
+            <option value="">Select Task:</option>
+            <!-- Loop through each Task in the ViewBag to generate the options dynamically -->
+            @foreach (Category m in ViewBag.Tasks)
+            {
+                <!-- For each Category object, create an option element with the CategoryId as the value and CategoryName as the display text -->
+                <option value="@m.CategoryId">@m.CategoryName</option>
+            }
+        </select>
+    </div>
+
+    <!--Completed-->
+    <div>
+        <label>Completed (Yes/No):</label><br />
+
+        <input type="radio" asp-for="Completed" value="true" id="CompletedYes" />
+        <label for="CompletedYes">Yes</label>
+
+        <input type="radio" asp-for="Completed" value="false" id="CompletedNo" />
+        <label for="CompletedNo">No</label>
+    </div>
+
+    <!--Button-->
+    <button type="submit">Save Task</button>
+    <div asp-validation-summary="All"></div>
+</form>
