@@ -27,7 +27,7 @@ namespace Mission08_Team0302._1.Migrations
                 name: "Tasks",
                 columns: table => new
                 {
-                    TaskId = table.Column<string>(type: "TEXT", nullable: false),
+                    TaskId = table.Column<int>(type: "INTEGER", nullable: false),
                     task_description = table.Column<string>(type: "TEXT", nullable: false),
                     due_date = table.Column<string>(type: "TEXT", nullable: false),
                     quadrant = table.Column<int>(type: "INTEGER", nullable: false),

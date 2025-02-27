@@ -33,8 +33,8 @@ namespace Mission08_Team0302._1.Migrations
 
             modelBuilder.Entity("Mission08_Team0302._1.Models.Task", b =>
                 {
-                    b.Property<string>("TaskId")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("TaskId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
