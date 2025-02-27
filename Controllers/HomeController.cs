@@ -20,7 +20,7 @@ namespace Mission08_Team0302._1.Controllers
             return View();
         }
 
-        public IActionResult AddTask()
+        public IActionResult CreateTask()
         {
             
             ViewBag.Categories = _repo.Categories
@@ -31,7 +31,7 @@ namespace Mission08_Team0302._1.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddTask(Task task)
+        public IActionResult CreateTask(Task task)
         {
 
             if (ModelState.IsValid)
@@ -66,7 +66,7 @@ namespace Mission08_Team0302._1.Controllers
                 .OrderBy(x => x.name)
                 .ToList();
             
-            return View("AddTask", item);
+            return View("CreateTask", item);
         }
 
         [HttpPost]
@@ -80,7 +80,7 @@ namespace Mission08_Team0302._1.Controllers
             }
             else
             {
-                return View("AddTask", task);
+                return View("CreateTask", task);
             }
         }
 
