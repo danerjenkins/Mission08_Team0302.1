@@ -6,15 +6,16 @@ namespace Mission08_Team0302._1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private iTasksRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(iTasksRepository temp)
         {
-            _logger = logger;
+            _repo = temp;
         }
 
         public IActionResult Index()
         {
+            ViewBag.Categories = _repo.Categories.ToList();
             return View();
         }
 
